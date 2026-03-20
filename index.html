@@ -20,24 +20,8 @@
 html{scroll-behavior:smooth;}
 body{font-family:var(--sans);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 
-/* TOP NAV */
-.top-nav{
-  position:fixed;top:0;left:0;right:0;z-index:400;
-  display:flex;align-items:center;justify-content:flex-end;
-  padding:0.75rem 2rem;
-  background:rgba(10,10,10,0.85);
-  border-bottom:1px solid var(--border);
-  backdrop-filter:blur(16px);
-}
-.lang-btn{
-  font-family:var(--sans);font-size:11px;font-weight:700;
-  letter-spacing:0.08em;text-transform:uppercase;
-  color:var(--text2);background:transparent;
-  border:1px solid var(--border);
-  border-radius:20px;padding:6px 16px;
-  cursor:pointer;transition:all 0.2s;
-  display:flex;align-items:center;gap:6px;
-}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:400;display:flex;align-items:center;justify-content:flex-end;padding:0.75rem 2rem;background:rgba(10,10,10,0.85);border-bottom:1px solid var(--border);backdrop-filter:blur(16px);}
+.lang-btn{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text2);background:transparent;border:1px solid var(--border);border-radius:20px;padding:6px 16px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:6px;}
 .lang-btn:hover{border-color:var(--punch);color:var(--punch);}
 .lang-flag{font-size:14px;}
 
@@ -122,11 +106,67 @@ h1 .last{color:var(--punch);display:block;}
 .clink:hover{border-color:var(--punch);color:var(--punch);}
 .clink.p{background:var(--punch);color:#fff;border-color:var(--punch);}
 .clink.p:hover{background:var(--punch2);}
+
+/* ── RESPONSIVIDADE MOBILE ── */
+@media (max-width: 768px) {
+  .top-nav{padding:0.75rem 1rem;}
+
+  .hero{
+    grid-template-columns:1fr;
+    padding:5rem 1.5rem 3rem;
+    gap:2.5rem;
+    min-height:auto;
+  }
+  .hero-right{order:-1;}
+  .hero-visual{
+    max-width:100%;
+    aspect-ratio:1/1;
+  }
+  .vc-num{font-size:clamp(1.6rem,10vw,3rem);}
+  .visual-cell{padding:1.25rem;}
+
+  h1{font-size:clamp(3.5rem,18vw,5rem);margin-bottom:1rem;}
+
+  .hero-desc{max-width:100%;}
+
+  .stack-section{padding:4rem 1.5rem;min-height:auto;}
+  .stack-title{margin-bottom:3rem;}
+  .stack-grid{gap:2.5rem 2.5rem;}
+  .sk-logo{width:52px;height:52px;}
+  .sk-logo svg{width:52px;height:52px;}
+
+  .proj-section{padding:4rem 1.5rem;}
+  .proj-grid{grid-template-columns:1fr;}
+  .proj-card{min-height:auto;padding:1.75rem;}
+
+  .exp-section{padding:4rem 1.5rem;}
+  .exp-item{
+    grid-template-columns:1fr;
+    gap:0.6rem;
+    padding:1.5rem;
+    align-items:start;
+  }
+  .exp-badge{width:fit-content;}
+
+  .contact-section{padding:4rem 1.5rem;}
+  .contact-title{font-size:clamp(2.5rem,14vw,5rem);}
+  .contact-links{flex-direction:column;align-items:stretch;}
+  .clink{text-align:center;}
+
+  .float-nav{bottom:1rem;padding:6px 8px;}
+  .fn-item{width:36px;height:36px;}
+}
+
+@media (max-width: 400px) {
+  h1{font-size:3rem;}
+  .stack-grid{gap:2rem 2rem;}
+  .sk-logo{width:44px;height:44px;}
+  .sk-logo svg{width:44px;height:44px;}
+}
 </style>
 </head>
 <body>
 
-<!-- TOP NAV COM BOTÃO DE IDIOMA -->
 <div class="top-nav">
   <button class="lang-btn" onclick="toggleLang()">
     <span class="lang-flag" id="lang-flag">🇺🇸</span>
@@ -134,7 +174,6 @@ h1 .last{color:var(--punch);display:block;}
   </button>
 </div>
 
-<!-- FLOATING NAV -->
 <div class="float-nav">
   <a class="fn-item active" href="#hero"><svg class="fn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a>
   <a class="fn-item" href="#stack"><svg class="fn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></a>
@@ -143,7 +182,6 @@ h1 .last{color:var(--punch);display:block;}
   <a class="fn-item" href="#contato"><svg class="fn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
 </div>
 
-<!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-left">
     <div class="hero-greeting" data-pt="Olá, eu sou" data-en="Hi, I'm">Olá, eu sou</div>
@@ -178,7 +216,6 @@ h1 .last{color:var(--punch);display:block;}
   </div>
 </section>
 
-<!-- STACK -->
 <section class="stack-section" id="stack">
   <div class="stack-title">Tech <span>Stack</span></div>
   <div class="stack-grid">
@@ -203,33 +240,12 @@ h1 .last{color:var(--punch);display:block;}
       <div class="sk-name">HTML</div>
     </div>
     <div class="sk-item">
-      <div class="sk-logo"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="64" height="64" viewBox="0 0 64 64" id="svg3476" version="1.1" inkscape:version="0.92.4 (5da689c313, 2019-01-14)" sodipodi:docname="w3_css-icon.svg">
-  <defs id="defs3478"/>
-  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="4.8766667" inkscape:cx="27.142857" inkscape:cy="28.571429" inkscape:document-units="px" inkscape:current-layer="layer1" showgrid="false" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0" inkscape:window-width="1850" inkscape:window-height="1016" inkscape:window-x="70" inkscape:window-y="27" inkscape:window-maximized="1" units="px"/>
-  <metadata id="metadata3481">
-    <rdf:RDF>
-      <cc:Work rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-        <dc:title/>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g inkscape:label="Calque 1" inkscape:groupmode="layer" id="layer1" transform="translate(-193.633,-739.48031)">
-    <polygon style="fill:#264de4" points="437.367,100.62 404.321,470.819 255.778,512 107.644,470.877 74.633,100.62 " id="polygon2989" transform="matrix(0.15557406,0,0,0.15557392,185.82204,723.82646)"/>
-    <polygon style="fill:#2965f1" points="256,480.523 376.03,447.246 404.27,130.894 256,130.894 " id="polygon2991" transform="matrix(0.15557406,0,0,0.15557392,185.82204,723.82646)"/>
-    <polygon style="fill:#ebebeb" points="256,268.217 150.31,268.217 154.38,313.627 256,313.627 " id="polygon2993" transform="matrix(0.15557406,0,0,0.15557392,185.82204,723.82646)"/>
-    <polygon style="fill:#ebebeb" points="256,176.305 255.843,176.305 142.132,176.305 146.26,221.716 256,221.716 " id="polygon2995" transform="matrix(0.15557406,0,0,0.15557392,185.82204,723.82646)"/>
-    <polygon style="fill:#ebebeb" points="156.409,336.333 162.771,407.634 255.791,433.457 256,433.399 256,386.153 255.801,386.206 205.227,372.55 201.994,336.333 177.419,336.333 " id="polygon2997" transform="matrix(0.15557406,0,0,0.15557392,185.82204,723.82646)"/>
-    <polygon style="fill:#ffffff" points="311.761,313.627 306.49,372.521 255.843,386.191 255.843,433.435 348.937,407.634 349.62,399.962 360.291,280.411 361.399,268.217 369.597,176.305 255.843,176.305 255.843,221.716 319.831,221.716 315.699,268.217 255.843,268.217 255.843,313.627 " id="polygon3005" transform="matrix(0.15557406,0,0,0.15557392,185.82204,723.82646)"/>
-  </g>
-</svg></div>
+      <div class="sk-logo"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><polygon style="fill:#264de4" points="56.7,13 53.2,52.4 32.9,58.3 12.9,52.4 9.4,13"/><polygon style="fill:#2965f1" points="32.9,54.5 48.5,50.2 51.4,18 32.9,18"/><polygon style="fill:#ebebeb" points="32.9,30.4 25.1,30.4 24.7,25.7 32.9,25.7 32.9,21.1 20,21.1 20.4,26 32.9,26"/><polygon style="fill:#ebebeb" points="32.9,43.3 32.8,43.4 26.1,41.6 25.7,37 21.1,37 21.9,46 32.8,49 32.9,49"/><polygon style="fill:#fff" points="32.9,30.4 32.9,35.1 40.4,35.1 39.7,42.9 32.9,44.7 32.9,49.4 43.9,46.4 44,45.3 45.3,31.3 45.4,30.4 40.7,30.4"/><polygon style="fill:#fff" points="32.9,21.1 32.9,25.7 45.8,25.7 45.9,24.3 46.1,21.1"/></svg></div>
       <div class="sk-name">CSS</div>
     </div>
   </div>
 </section>
 
-<!-- PROJETOS -->
 <section class="proj-section" id="projetos">
   <div class="proj-title" data-pt="Meus <span>Projetos</span>" data-en="My <span>Projects</span>">Meus <span>Projetos</span></div>
   <div class="proj-grid">
@@ -252,7 +268,6 @@ h1 .last{color:var(--punch);display:block;}
   </div>
 </section>
 
-<!-- EXPERIÊNCIA -->
 <section class="exp-section" id="experiencia">
   <div class="exp-title" data-pt="Minha <span>Experiência</span>" data-en="My <span>Experience</span>">Minha <span>Experiência</span></div>
   <div class="exp-list">
@@ -277,7 +292,6 @@ h1 .last{color:var(--punch);display:block;}
   </div>
 </section>
 
-<!-- CONTATO -->
 <section class="contact-section" id="contato">
   <div class="contact-title" data-pt="Vamos<br><span>Conversar?</span>" data-en="Let's<br><span>Talk?</span>">Vamos<br><span>Conversar?</span></div>
   <div class="contact-sub" data-pt="gcl.082003@gmail.com · Adamantina, SP<br>Aberto a vagas remotas e híbridas." data-en="gcl.082003@gmail.com · Adamantina, SP<br>Open to remote and hybrid positions.">gcl.082003@gmail.com · Adamantina, SP<br>Aberto a vagas remotas e híbridas.</div>
@@ -297,22 +311,15 @@ window.addEventListener('scroll',()=>{
   items.forEach(i=>i.classList.toggle('active',i.getAttribute('href')==='#'+cur));
 });
 
-let isEn = false;
-
-function toggleLang() {
-  isEn = !isEn;
-  const lang = isEn ? 'en' : 'pt';
-
-  document.getElementById('lang-flag').textContent = isEn ? '🇧🇷' : '🇺🇸';
-  document.getElementById('lang-label').textContent = isEn ? 'Português' : 'English';
-
-  document.querySelectorAll('[data-pt][data-en]').forEach(el => {
-    const text = isEn ? el.getAttribute('data-en') : el.getAttribute('data-pt');
-    if (el.tagName === 'A' || el.tagName === 'BUTTON') {
-      el.textContent = text;
-    } else {
-      el.innerHTML = text;
-    }
+let isEn=false;
+function toggleLang(){
+  isEn=!isEn;
+  document.getElementById('lang-flag').textContent=isEn?'🇧🇷':'🇺🇸';
+  document.getElementById('lang-label').textContent=isEn?'Português':'English';
+  document.querySelectorAll('[data-pt][data-en]').forEach(el=>{
+    const text=isEn?el.getAttribute('data-en'):el.getAttribute('data-pt');
+    if(el.tagName==='A'||el.tagName==='BUTTON'){el.textContent=text;}
+    else{el.innerHTML=text;}
   });
 }
 </script>
